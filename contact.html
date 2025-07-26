@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Durga Gadiraju</title>
+    <meta name="description" content="Get in touch with Durga Gadiraju for collaboration opportunities, speaking engagements, or professional inquiries.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0b5fff;
+            --accent: #ffd33d;
+        }
+        .bg-primary { background-color: var(--primary); }
+        .text-primary { color: var(--primary); }
+        .bg-accent { background-color: var(--accent); }
+        .text-accent { color: var(--accent); }
+        .border-primary { border-color: var(--primary); }
+        
+        .contact-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-xl font-bold text-primary">DG</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="experience.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Experience</a>
+                        <a href="projects.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Projects</a>
+                        <a href="publications.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Publications</a>
+                        <a href="contact.html" class="text-primary border-b-2 border-primary px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Dark mode toggle and mobile menu button -->
+                <div class="flex items-center space-x-4">
+                    <button id="darkModeToggle" class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary transition-colors" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobileMenuToggle" class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary transition-colors" aria-label="Toggle mobile menu">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+                <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Home</a>
+                <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">About</a>
+                <a href="experience.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Experience</a>
+                <a href="projects.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Projects</a>
+                <a href="publications.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Publications</a>
+                <a href="contact.html" class="text-primary block px-3 py-2 text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                    Let's Connect
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Ready to discuss your next AI or data initiative? I'd love to hear from you.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Send a Message</h2>
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Your Name *
+                            </label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Email Address *
+                            </label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Subject
+                            </label>
+                            <select id="subject" name="subject"
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors">
+                                <option value="">Select a topic...</option>
+                                <option value="collaboration">Collaboration Opportunity</option>
+                                <option value="speaking">Speaking Engagement</option>
+                                <option value="consulting">Consulting Inquiry</option>
+                                <option value="media">Media Interview</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                Message *
+                            </label>
+                            <textarea id="message" name="message" rows="6" required
+                                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors"
+                                placeholder="Tell me about your project, event, or how I can help..."></textarea>
+                        </div>
+                        
+                        <button type="submit"
+                            class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors inline-flex items-center justify-center">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Get in Touch</h2>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="contact-card bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg">Email</h3>
+                                    <p class="text-gray-600 dark:text-gray-400">Best way to reach me</p>
+                                </div>
+                            </div>
+                            <a href="mailto:hello@durgagadiraju.com" class="text-primary hover:text-blue-700 font-medium">
+                                hello@durgagadiraju.com
+                            </a>
+                        </div>
+
+                        <div class="contact-card bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg">Response Time</h3>
+                                    <p class="text-gray-600 dark:text-gray-400">Usually within 24-48 hours</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-card bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-primary text-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-calendar text-lg"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold text-lg">Schedule a Call</h3>
+                                    <p class="text-gray-600 dark:text-gray-400">Book a meeting directly</p>
+                                </div>
+                            </div>
+                            <a href="#" class="text-primary hover:text-blue-700 font-medium">
+                                Book a 30-minute consultation
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Connect on Social</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full transition-colors" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in text-lg"></i>
+                            </a>
+                            <a href="#" class="bg-black hover:bg-gray-800 text-white p-3 rounded-full transition-colors" aria-label="Twitter">
+                                <i class="fab fa-twitter text-lg"></i>
+                            </a>
+                            <a href="#" class="bg-gray-800 hover:bg-gray-700 text-white p-3 rounded-full transition-colors" aria-label="GitHub">
+                                <i class="fab fa-github text-lg"></i>
+                            </a>
+                            <a href="#" class="bg-red-600 hover:bg-red-700 text-white p-3 rounded-full transition-colors" aria-label="YouTube">
+                                <i class="fab fa-youtube text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">
+                    Quick answers to common inquiries
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                        What type of consulting services do you offer?
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        I provide strategic consulting for AI implementation, data platform architecture, team building, and digital transformation initiatives. My expertise spans from technical strategy to organizational change management.
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                        Do you speak at conferences and events?
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Absolutely! I regularly speak at industry conferences, corporate events, and educational institutions on topics including AI strategy, data science, leadership, and technology education. Feel free to reach out with your event details.
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                        Are you available for advisory roles?
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        I'm selective about advisory opportunities but am always interested in innovative companies that are leveraging AI and data to solve meaningful problems. Please share your company details and how I might add value.
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-900 rounded-lg p-6 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                        Can you provide training for my team?
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        Yes, I offer customized training programs for organizations looking to upskill their teams in data science, AI, and analytics. Training can be delivered virtually or in-person, tailored to your specific technology stack and business requirements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2024 Durga Gadiraju. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 

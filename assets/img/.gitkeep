@@ -1,0 +1,17 @@
+# Placeholder file to ensure this directory is tracked by Git
+
+This directory is intended for image assets such as:
+- Profile photos
+- Project screenshots
+- Company logos
+- Social media icons
+- Hero images
+
+Add your images here and update the HTML files to reference them.
+
+Recommended formats:
+- WebP for modern browsers
+- JPEG/PNG for fallback
+- SVG for icons and logos
+
+Remember to optimize images for web performance. 

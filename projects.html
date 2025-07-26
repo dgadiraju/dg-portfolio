@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Durga Gadiraju</title>
+    <meta name="description" content="Explore key projects and implementations led by Durga Gadiraju across AI, data analytics, and platform development.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0b5fff;
+            --accent: #ffd33d;
+        }
+        .bg-primary { background-color: var(--primary); }
+        .text-primary { color: var(--primary); }
+        .bg-accent { background-color: var(--accent); }
+        .text-accent { color: var(--accent); }
+        .border-primary { border-color: var(--primary); }
+        
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .modal {
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-xl font-bold text-primary">DG</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="experience.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Experience</a>
+                        <a href="projects.html" class="text-primary border-b-2 border-primary px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="publications.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Publications</a>
+                        <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Dark mode toggle and mobile menu button -->
+                <div class="flex items-center space-x-4">
+                    <button id="darkModeToggle" class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary transition-colors" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobileMenuToggle" class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary transition-colors" aria-label="Toggle mobile menu">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+                <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Home</a>
+                <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">About</a>
+                <a href="experience.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Experience</a>
+                <a href="projects.html" class="text-primary block px-3 py-2 text-base font-medium">Projects</a>
+                <a href="publications.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Publications</a>
+                <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                    Featured Projects
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Showcasing innovative solutions and implementations across AI, data analytics, and enterprise platforms
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1: AI-Powered Analytics Platform -->
+                <div class="project-card bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="assets/img/project-ai-analytics.jpg" alt="AI-Powered Analytics Platform - Dashboard showing real-time data visualization and machine learning insights" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">AI-Powered Analytics Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Enterprise-scale analytics platform leveraging machine learning for predictive insights and automated decision-making across global retail operations.
+                        </p>
+                        <button onclick="openModal('modal1')" class="text-primary hover:text-blue-700 font-semibold inline-flex items-center transition-colors">
+                            Read more <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2: Real-time Data Processing Pipeline -->
+                <div class="project-card bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="assets/img/project-data-pipeline.jpg" alt="Real-time Data Processing Pipeline - Server infrastructure and data streaming visualization" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Real-time Data Processing Pipeline</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            High-throughput streaming data pipeline handling millions of events per second for a multinational financial services corporation.
+                        </p>
+                        <button onclick="openModal('modal2')" class="text-primary hover:text-blue-700 font-semibold inline-flex items-center transition-colors">
+                            Read more <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3: Cloud Migration & Modernization -->
+                <div class="project-card bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="assets/img/project-cloud-migration.jpg" alt="Cloud Migration & Modernization - Futuristic cloud computing and digital transformation imagery" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Cloud Migration & Modernization</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Complete digital transformation initiative migrating legacy systems to cloud-native architecture for major healthcare provider.
+                        </p>
+                        <button onclick="openModal('modal3')" class="text-primary hover:text-blue-700 font-semibold inline-flex items-center transition-colors">
+                            Read more <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 4: Educational Technology Platform -->
+                <div class="project-card bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+                    <div class="h-48 relative overflow-hidden">
+                        <img src="assets/img/project-education-platform.jpg" alt="Educational Technology Platform - Students collaborating and learning with modern technology" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Educational Technology Platform</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            Comprehensive learning management system with adaptive AI-driven curriculum delivery serving thousands of students globally.
+                        </p>
+                        <button onclick="openModal('modal4')" class="text-primary hover:text-blue-700 font-semibold inline-flex items-center transition-colors">
+                            Read more <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    
+    <!-- Modal 1: AI-Powered Analytics Platform -->
+    <div id="modal1" class="modal fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white dark:bg-gray-800 rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">AI-Powered Analytics Platform</h2>
+                        <button onclick="closeModal('modal1')" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300">
+                        <p><strong>Challenge:</strong> A Fortune 100 retailer needed to transform their traditional reporting into real-time, predictive analytics to optimize inventory management and customer experience across 2,000+ stores.</p>
+                        
+                        <p><strong>Solution:</strong> Led the design and implementation of an enterprise-scale AI platform that processes over 500GB of daily transaction data, customer interactions, and supply chain metrics.</p>
+                        
+                        <div>
+                            <p><strong>Key Achievements:</strong></p>
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li>Reduced inventory holding costs by 35% through predictive demand forecasting</li>
+                                <li>Improved customer satisfaction scores by 28% via personalized recommendations</li>
+                                <li>Achieved 99.9% platform uptime with auto-scaling infrastructure</li>
+                                <li>Decreased time-to-insight from days to minutes for business stakeholders</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <p><strong>Technologies Used:</strong></p>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">Python</span>
+                                <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                                <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">Apache Spark</span>
+                                <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">AWS</span>
+                                <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">Kubernetes</span>
+                                <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">ElasticSearch</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Real-time Data Processing Pipeline -->
+    <div id="modal2" class="modal fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white dark:bg-gray-800 rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Real-time Data Processing Pipeline</h2>
+                        <button onclick="closeModal('modal2')" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300">
+                        <p><strong>Challenge:</strong> A multinational financial services corporation required a robust streaming platform to process millions of real-time transactions while ensuring compliance, fraud detection, and instant risk assessment.</p>
+                        
+                        <p><strong>Solution:</strong> Architected and deployed a high-throughput streaming data pipeline capable of processing 10M+ events per second with sub-100ms latency for critical financial operations.</p>
+                        
+                        <div>
+                            <p><strong>Key Achievements:</strong></p>
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li>Achieved 99.99% uptime for mission-critical trading systems</li>
+                                <li>Reduced fraud detection time from hours to milliseconds</li>
+                                <li>Processed $1B+ in daily transaction volume with zero data loss</li>
+                                <li>Improved regulatory reporting accuracy to 99.98%</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <p><strong>Technologies Used:</strong></p>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm">Apache Kafka</span>
+                                <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm">Apache Flink</span>
+                                <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm">Redis</span>
+                                <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm">Cassandra</span>
+                                <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm">Docker</span>
+                                <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm">Prometheus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Cloud Migration & Modernization -->
+    <div id="modal3" class="modal fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white dark:bg-gray-800 rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Cloud Migration & Modernization</h2>
+                        <button onclick="closeModal('modal3')" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300">
+                        <p><strong>Challenge:</strong> A major healthcare provider needed to modernize their legacy patient management systems while ensuring HIPAA compliance, zero downtime, and seamless integration with existing workflows.</p>
+                        
+                        <p><strong>Solution:</strong> Orchestrated a comprehensive digital transformation, migrating 15+ legacy applications to cloud-native microservices architecture across multiple AWS regions.</p>
+                        
+                        <div>
+                            <p><strong>Key Achievements:</strong></p>
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li>Reduced infrastructure costs by 45% through cloud optimization</li>
+                                <li>Improved system performance by 60% with modern architecture</li>
+                                <li>Achieved 100% HIPAA compliance throughout migration</li>
+                                <li>Completed migration with zero patient data loss or downtime</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <p><strong>Technologies Used:</strong></p>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">AWS</span>
+                                <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">Terraform</span>
+                                <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">Docker</span>
+                                <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">Kubernetes</span>
+                                <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                                <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">API Gateway</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Educational Technology Platform -->
+    <div id="modal4" class="modal fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white dark:bg-gray-800 rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Educational Technology Platform</h2>
+                        <button onclick="closeModal('modal4')" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-4 text-gray-600 dark:text-gray-300">
+                        <p><strong>Challenge:</strong> Creating a scalable, personalized learning platform that adapts to individual student needs while providing comprehensive analytics for educators and institutions.</p>
+                        
+                        <p><strong>Solution:</strong> Built ITVersity - a comprehensive learning management system with AI-driven curriculum adaptation, serving over 100,000 students globally with personalized data science and analytics education.</p>
+                        
+                        <div>
+                            <p><strong>Key Achievements:</strong></p>
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li>Served 100,000+ students across 50+ countries</li>
+                                <li>Achieved 95% student satisfaction rate</li>
+                                <li>Created 200+ hours of comprehensive curriculum content</li>
+                                <li>Implemented adaptive learning paths increasing completion rates by 40%</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <p><strong>Technologies Used:</strong></p>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">React</span>
+                                <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">Node.js</span>
+                                <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">MongoDB</span>
+                                <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">Python</span>
+                                <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                                <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">AWS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2024 Durga Gadiraju. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Durga Gadiraju</title>
+    <meta name="description" content="Explore Durga Gadiraju's professional journey and career highlights across leading technology companies.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0b5fff;
+            --accent: #ffd33d;
+        }
+        .bg-primary { background-color: var(--primary); }
+        .text-primary { color: var(--primary); }
+        .bg-accent { background-color: var(--accent); }
+        .text-accent { color: var(--accent); }
+        .border-primary { border-color: var(--primary); }
+        
+        .timeline-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-xl font-bold text-primary">DG</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="experience.html" class="text-primary border-b-2 border-primary px-3 py-2 text-sm font-medium">Experience</a>
+                        <a href="projects.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Projects</a>
+                        <a href="publications.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Publications</a>
+                        <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Dark mode toggle and mobile menu button -->
+                <div class="flex items-center space-x-4">
+                    <button id="darkModeToggle" class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary transition-colors" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobileMenuToggle" class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary transition-colors" aria-label="Toggle mobile menu">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+                <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Home</a>
+                <a href="about.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">About</a>
+                <a href="experience.html" class="text-primary block px-3 py-2 text-base font-medium">Experience</a>
+                <a href="projects.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Projects</a>
+                <a href="publications.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Publications</a>
+                <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                    Professional Experience
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    A journey through my career milestones and achievements across leading technology organizations
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gray-300 dark:bg-gray-600"></div>
+
+                <!-- Infolob -->
+                <div class="timeline-item relative flex items-center justify-between mb-16">
+                    <div class="flex items-center w-full">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                                <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">2023 - Present</div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Group Vice President, AI</h3>
+                                <h4 class="text-lg font-semibold text-primary mb-4">Infolob</h4>
+                                <ul class="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
+                                    <li>• Led AI strategy resulting in 40% improvement in client operational efficiency</li>
+                                    <li>• Built and managed cross-functional AI team of 25+ engineers and data scientists</li>
+                                    <li>• Delivered 15+ AI-powered solutions generating $2M+ in annual revenue</li>
+                                </ul>
+                                <div class="mt-4 flex flex-wrap gap-2 justify-end">
+                                    <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-xs">AI Strategy</span>
+                                    <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-xs">Machine Learning</span>
+                                    <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-xs">Leadership</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white dark:border-gray-900"></div>
+                        <div class="w-1/2"></div>
+                    </div>
+                </div>
+
+                <!-- ITVersity -->
+                <div class="timeline-item relative flex items-center justify-between mb-16">
+                    <div class="flex items-center w-full">
+                        <div class="w-1/2"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white dark:border-gray-900"></div>
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                                <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">2012 - Present</div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Founder / Content Creator</h3>
+                                <h4 class="text-lg font-semibold text-primary mb-4">ITVersity</h4>
+                                <ul class="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
+                                    <li>• Built educational platform serving 100,000+ students globally</li>
+                                    <li>• Created 200+ hours of data science and analytics curriculum</li>
+                                    <li>• Achieved 95% student satisfaction rate across all courses</li>
+                                </ul>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-xs">Education</span>
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-xs">Content Creation</span>
+                                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-xs">Entrepreneurship</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Harman -->
+                <div class="timeline-item relative flex items-center justify-between mb-16">
+                    <div class="flex items-center w-full">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                                <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">2014 - 2015</div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Data & Analytics Lead</h3>
+                                <h4 class="text-lg font-semibold text-primary mb-4">Harman</h4>
+                                <ul class="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
+                                    <li>• Architected big data platform processing 10TB+ daily automotive data</li>
+                                    <li>• Reduced data processing time by 60% through optimization initiatives</li>
+                                    <li>• Led team of 8 engineers in developing real-time analytics solutions</li>
+                                </ul>
+                                <div class="mt-4 flex flex-wrap gap-2 justify-end">
+                                    <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-xs">Big Data</span>
+                                    <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-xs">Hadoop</span>
+                                    <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded text-xs">Spark</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white dark:border-gray-900"></div>
+                        <div class="w-1/2"></div>
+                    </div>
+                </div>
+
+                <!-- IBM -->
+                <div class="timeline-item relative flex items-center justify-between mb-16">
+                    <div class="flex items-center w-full">
+                        <div class="w-1/2"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white dark:border-gray-900"></div>
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                                <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">2013 - 2014</div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Senior Solution Architect</h3>
+                                <h4 class="text-lg font-semibold text-primary mb-4">IBM</h4>
+                                <ul class="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
+                                    <li>• Designed enterprise data warehouse solutions for Fortune 500 clients</li>
+                                    <li>• Improved system performance by 45% through architectural enhancements</li>
+                                    <li>• Mentored junior architects and established best practices framework</li>
+                                </ul>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded text-xs">Data Warehouse</span>
+                                    <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded text-xs">Architecture</span>
+                                    <span class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded text-xs">IBM Technologies</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cognizant -->
+                <div class="timeline-item relative flex items-center justify-between mb-16">
+                    <div class="flex items-center w-full">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                                <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">2011 - 2013</div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Consultant</h3>
+                                <h4 class="text-lg font-semibold text-primary mb-4">Cognizant</h4>
+                                <ul class="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
+                                    <li>• Delivered data migration projects for 5+ major retail clients</li>
+                                    <li>• Achieved 99.9% data accuracy in complex ETL implementations</li>
+                                    <li>• Reduced client operational costs by $500K through process optimization</li>
+                                </ul>
+                                <div class="mt-4 flex flex-wrap gap-2 justify-end">
+                                    <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-xs">ETL</span>
+                                    <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-xs">Data Migration</span>
+                                    <span class="bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded text-xs">Consulting</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white dark:border-gray-900"></div>
+                        <div class="w-1/2"></div>
+                    </div>
+                </div>
+
+                <!-- Vayu Vision -->
+                <div class="timeline-item relative flex items-center justify-between mb-16">
+                    <div class="flex items-center w-full">
+                        <div class="w-1/2"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white dark:border-gray-900"></div>
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                                <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">2007 - 2011</div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Software Engineer</h3>
+                                <h4 class="text-lg font-semibold text-primary mb-4">Vayu Vision</h4>
+                                <ul class="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
+                                    <li>• Developed distributed systems handling 1M+ transactions daily</li>
+                                    <li>• Optimized application performance resulting in 50% faster response times</li>
+                                    <li>• Collaborated with cross-functional teams on 10+ product releases</li>
+                                </ul>
+                                <div class="mt-4 flex flex-wrap gap-2">
+                                    <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded text-xs">Java</span>
+                                    <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded text-xs">Distributed Systems</span>
+                                    <span class="bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-1 rounded text-xs">Performance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tavant Technologies -->
+                <div class="timeline-item relative flex items-center justify-between">
+                    <div class="flex items-center w-full">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                                <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">2004 - 2007</div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Developer</h3>
+                                <h4 class="text-lg font-semibold text-primary mb-4">Tavant Technologies</h4>
+                                <ul class="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
+                                    <li>• Built enterprise web applications serving 50,000+ users</li>
+                                    <li>• Maintained 99.5% uptime across all production systems</li>
+                                    <li>• Gained foundational expertise in software development best practices</li>
+                                </ul>
+                                <div class="mt-4 flex flex-wrap gap-2 justify-end">
+                                    <span class="bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 px-2 py-1 rounded text-xs">Web Development</span>
+                                    <span class="bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 px-2 py-1 rounded text-xs">J2EE</span>
+                                    <span class="bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 px-2 py-1 rounded text-xs">SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white dark:border-gray-900"></div>
+                        <div class="w-1/2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Ready to Collaborate?</h2>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                Let's discuss how my experience can help drive your next AI or data initiative
+            </p>
+            <a href="contact.html" class="bg-primary hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors inline-flex items-center">
+                <i class="fas fa-envelope mr-2"></i>
+                Get In Touch
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2024 Durga Gadiraju. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 

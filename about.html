@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Durga Gadiraju</title>
+    <meta name="description" content="Learn more about Durga Gadiraju's background, experience, and passion for AI, data analytics, and education.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0b5fff;
+            --accent: #ffd33d;
+        }
+        .bg-primary { background-color: var(--primary); }
+        .text-primary { color: var(--primary); }
+        .bg-accent { background-color: var(--accent); }
+        .text-accent { color: var(--accent); }
+        .border-primary { border-color: var(--primary); }
+        
+        /* Enhanced animations and effects */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-xl font-bold text-primary">DG</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="about.html" class="text-primary border-b-2 border-primary px-3 py-2 text-sm font-medium">About</a>
+                        <a href="experience.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Experience</a>
+                        <a href="projects.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Projects</a>
+                        <a href="publications.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Publications</a>
+                        <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Dark mode toggle and mobile menu button -->
+                <div class="flex items-center space-x-4">
+                    <button id="darkModeToggle" class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary transition-colors" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                    
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobileMenuToggle" class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary transition-colors" aria-label="Toggle mobile menu">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobileMenu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+                <a href="index.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Home</a>
+                <a href="about.html" class="text-primary block px-3 py-2 text-base font-medium">About</a>
+                <a href="experience.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Experience</a>
+                <a href="projects.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Projects</a>
+                <a href="publications.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Publications</a>
+                <a href="contact.html" class="text-gray-700 dark:text-gray-300 hover:text-primary block px-3 py-2 text-base font-medium transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                    About Me
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    Passionate about transforming data into actionable insights and building innovative AI solutions
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                <div class="lg:col-span-1">
+                    <div class="w-64 h-64 mx-auto rounded-full overflow-hidden shadow-xl border-4 border-white dark:border-gray-700">
+                        <img src="assets/img/profile-placeholder.jpg" alt="Durga Gadiraju - Professional headshot of AI and Data Analytics Leader" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-2 space-y-6">
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        I'm a seasoned technology leader with over 15 years of experience in AI, data analytics, and product development. Throughout my career, I've had the privilege of working with organizations ranging from innovative startups to Fortune 100 companies, helping them harness the power of data to drive meaningful business outcomes.
+                    </p>
+                    
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        My passion lies at the intersection of technology and education. As the founder of ITVersity, I've dedicated myself to democratizing access to data science and analytics education, having taught over 100,000 students worldwide. I believe that knowledge sharing and mentorship are fundamental to advancing our industry and creating opportunities for the next generation of data professionals.
+                    </p>
+                    
+                    <div class="bg-accent/10 border-l-4 border-accent p-4 rounded-r-lg">
+                        <p class="text-gray-700 dark:text-gray-300 font-medium">
+                            <i class="fas fa-lightbulb text-accent mr-2"></i>
+                            Fun fact: I've hosted over 50 podcast episodes, interviewing industry experts and sharing insights about the evolving landscape of AI and data science.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Grid -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Key Highlights</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">
+                    Some milestones that define my journey
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg text-center card-hover border border-gray-100 dark:border-gray-800">
+                    <div class="text-5xl font-bold text-primary mb-4">15+</div>
+                    <h3 class="text-xl font-semibold mb-2">Years Experience</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Leading data and AI initiatives across diverse industries and company sizes
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg text-center card-hover border border-gray-100 dark:border-gray-800">
+                    <div class="text-5xl font-bold text-primary mb-4">100K+</div>
+                    <h3 class="text-xl font-semibold mb-2">Students Taught</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Empowering professionals worldwide through comprehensive data science education
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg text-center card-hover border border-gray-100 dark:border-gray-800">
+                    <div class="text-5xl font-bold text-primary mb-4">50+</div>
+                    <h3 class="text-xl font-semibold mb-2">Podcasts Hosted</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Sharing industry insights and interviewing thought leaders in AI and data
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Certifications Section -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">Skills & Certifications</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">
+                    Technologies, frameworks, and professional certifications
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Artificial Intelligence</h3>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">Machine Learning</span>
+                        <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">Deep Learning</span>
+                        <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-3 py-1 rounded-full text-sm">NLP</span>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Data Engineering</h3>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm">Spark</span>
+                        <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm">Hadoop</span>
+                        <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-3 py-1 rounded-full text-sm">Kafka</span>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Cloud Platforms</h3>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">AWS</span>
+                        <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">Azure</span>
+                        <span class="bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-3 py-1 rounded-full text-sm">GCP</span>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2">Analytics</h3>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">R</span>
+                        <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-3 py-1 rounded-full text-sm">SQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="mt-16">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Professional Certifications</h3>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold">AWS Certified Solutions Architect</span>
+                    <span class="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold">Google Cloud Professional Data Engineer</span>
+                    <span class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold">Microsoft Azure AI Engineer</span>
+                    <span class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold">Certified Analytics Professional (CAP)</span>
+                    <span class="bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold">PMI Project Management Professional</span>
+                    <span class="bg-gray-700 text-white px-4 py-2 rounded-full text-sm font-semibold">Certified Kubernetes Administrator</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2024 Durga Gadiraju. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 

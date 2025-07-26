@@ -1,0 +1,240 @@
+name: Link Check
+
+on:
+  # Run weekly on Sundays at 3 AM UTC
+  schedule:
+    - cron: '0 3 * * 0'
+  
+  # Allow manual triggering
+  workflow_dispatch:
+  
+  # Run on pushes to main branch (but only if relevant files changed)
+  push:
+    branches: [ main ]
+    paths:
+      - '**.html'
+      - '**.md'
+      - '**.js'
+      - '.github/workflows/links.yml'
+
+  # Run on pull requests
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**.html'
+      - '**.md'
+      - '**.js'
+      - '.github/workflows/links.yml'
+
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check Links with Lychee
+        id: lychee
+        uses: lycheeverse/lychee-action@v1.8.0
+        with:
+          # Check all HTML, Markdown, and JavaScript files
+          args: --verbose --no-progress --exclude-all-private --exclude-mail '**/*.html' '**/*.md' '**/*.js'
+          
+          # Fail action on broken links
+          fail: true
+          
+          # Output file for results
+          output: lychee-report.md
+          
+          # Custom lychee configuration
+          lycheeConfig: |
+            # Lychee configuration file
+            # See https://lychee.cli.rs/usage/config/
+            
+            # Cache results for better performance
+            cache: true
+            
+            # Maximum number of concurrent network requests
+            max_concurrency: 10
+            
+            # Timeout per request (in seconds)
+            timeout: 30
+            
+            # User agent string
+            user_agent: "Mozilla/5.0 (compatible; lychee/portfolio-link-checker)"
+            
+            # Accept invalid certificates (for development/testing)
+            insecure: false
+            
+            # Follow redirects
+            max_redirects: 10
+            
+            # Include fragments in URLs
+            include_fragments: true
+            
+            # Exclude patterns
+            exclude:
+              # Skip localhost URLs
+              - "http://localhost:*"
+              - "http://127.0.0.1:*"
+              - "https://localhost:*"
+              - "https://127.0.0.1:*"
+              
+              # Skip placeholder URLs
+              - "https://example.com"
+              - "https://placeholder.com"
+              - "http://example.com"
+              
+              # Skip social media URLs that might block bots
+              - "https://twitter.com/*"
+              - "https://x.com/*"
+              - "https://facebook.com/*"
+              - "https://instagram.com/*"
+              
+              # Skip URLs that require authentication
+              - "https://linkedin.com/in/*"
+              
+              # Skip common false positives
+              - "https://fonts.googleapis.com/*"
+              - "https://cdnjs.cloudflare.com/*"
+              - "https://cdn.jsdelivr.net/*"
+              
+            # HTTP status codes to accept
+            accept:
+              - 200..299  # Success
+              - 429       # Too Many Requests (rate limited)
+              - 999       # LinkedIn anti-bot protection
+
+      - name: Create Issue on Failure
+        if: failure() && github.event_name == 'schedule'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            
+            // Read the lychee report
+            let reportContent = '';
+            try {
+              reportContent = fs.readFileSync('lychee-report.md', 'utf8');
+            } catch (error) {
+              reportContent = 'No detailed report available.';
+            }
+            
+            // Create issue body
+            const issueBody = `
+            ## 🔗 Broken Links Detected
+            
+            The automated link checker has found broken links in the portfolio website.
+            
+            **Workflow Run**: [${{ github.run_id }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            **Triggered**: Scheduled weekly check
+            **Date**: ${new Date().toISOString().split('T')[0]}
+            
+            ### 📊 Link Check Report
+            
+            \`\`\`
+            ${reportContent}
+            \`\`\`
+            
+            ### 🔧 Next Steps
+            
+            1. Review the broken links listed above
+            2. Update or remove broken URLs in the relevant files
+            3. Test the fixes locally before pushing
+            4. Re-run the link checker to verify fixes
+            
+            ### 📝 Common Fixes
+            
+            - **404 Not Found**: Update the URL or remove the link
+            - **DNS/Network Issues**: Check if the domain is still valid
+            - **Redirects**: Update to the final destination URL
+            - **Rate Limiting**: May be temporary; verify manually
+            
+            ---
+            
+            *This issue was automatically created by the Link Checker workflow.*
+            `;
+            
+            // Check if there's already an open issue for broken links
+            const existingIssues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'broken-links'
+            });
+            
+            if (existingIssues.data.length === 0) {
+              // Create new issue
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `🔗 Broken Links Detected - ${new Date().toISOString().split('T')[0]}`,
+                body: issueBody,
+                labels: ['broken-links', 'bug', 'maintenance']
+              });
+            } else {
+              // Update existing issue
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existingIssues.data[0].number,
+                body: `## 🔄 Updated Link Check Report - ${new Date().toISOString().split('T')[0]}\n\n${reportContent}`
+              });
+            }
+
+      - name: Upload Link Check Report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: link-check-report-${{ github.run_number }}
+          path: lychee-report.md
+          retention-days: 30
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            
+            let reportContent = '';
+            let status = '✅ All links are working';
+            
+            try {
+              reportContent = fs.readFileSync('lychee-report.md', 'utf8');
+              
+              // Check if there are errors in the report
+              if (reportContent.includes('ERROR') || reportContent.includes('FAILED')) {
+                status = '❌ Broken links detected';
+              }
+            } catch (error) {
+              status = '⚠️ Could not generate link report';
+            }
+            
+            const comment = `
+            ## 🔗 Link Check Results
+            
+            ${status}
+            
+            <details>
+            <summary>📋 View detailed report</summary>
+            
+            \`\`\`
+            ${reportContent}
+            \`\`\`
+            
+            </details>
+            
+            ---
+            *Automated link check via GitHub Actions*
+            `;
+            
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: comment
+            }); 
